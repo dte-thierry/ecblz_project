@@ -12,6 +12,9 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.express as px
 
+# Importer le layout de la page d'accueil - page 0 -
+from page0 import create_page0_layout
+
 # Charger les données
 df = pd.read_csv('data/ecbl-textiles.csv')
 
@@ -30,47 +33,31 @@ app.layout = html.Div([
     html.Div(id = 'page-content')
 ])
 
-index_page = html.Div([
-    html.H1(
-        'Dashboard EcoBalyze', 
-        style={'color' : 'blue', 'textAlign': 'center'}),
+index_page = create_page0_layout()
 
-    #html.Br(),
+# Page 1 - Comparatif de coût environnemental - PEF ------------------------------------
+layout_1 = html.Div([
+    html.H1('Comparatif de coût environnemental - PEF -', style={'textAlign': 'center', 'color': 'mediumturquoise'}),
 
-    html.Div(
-        html.A(
-            id="my-link",
-            children="Cliquer ici pour visiter le site EcoBalyze",
-            href="https://ecobalyse.beta.gouv.fr/#/",
-            target="_blank",
-            style={'color': 'blue'}
-        ),
-        style={'textAlign': 'center'}
-    ),
+    html.Button(dcc.Link('Retour à la page d\'accueil', href='/'))
 
-    html.Br(),
-
-    html.Button(
-        dcc.Link('Comparatif de Coût Environnemental - pef -', 
-                 href='/page-1')),
-    html.Br(),
-
-    html.Button(
-        dcc.Link('Comparatif de Textile', 
-                 href='/page-2'))
-
-], style={'alignItems': 'center'})
-
-# Page 1 - xxxxxxx ---------------------------------------------------------------------
+], style = {'background' : 'beige'})
 
 
-# Page 2 - xxxxxxx ---------------------------------------------------------------------
+
+# Page 2 - Comparatif de textile -------------------------------------------------------
+layout_2 = html.Div([
+    html.H1('Comparatif de textile', style={'textAlign': 'center', 'color': 'mediumturquoise'}),
+
+    html.Button(dcc.Link('Retour à la page d\'accueil', href='/'))
+
+], style = {'background' : 'beige'})
+
 
 
 # Mise à jour de l'index ---------------------------------------------------------------
 @app.callback(dash.dependencies.Output('page-content', 'children'),
     [dash.dependencies.Input('url', 'pathname')])
-
 def display_page(pathname):
     if pathname == '/page-1':
         return layout_1
