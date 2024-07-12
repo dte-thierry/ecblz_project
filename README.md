@@ -12,7 +12,12 @@ Open the browser and follow the indications.
 
 ### page 1 - environmental cost comparison - pef -
 
+Top 5 best scores - pef - by product
+
 <img src="screenshots/ecbl-dash004.png" alt="Top 5 by product" width="800"/>
+
+
+Distribution of environmental performance scores
 
 <img src="screenshots/ecbl-dash005.png" alt="distribution of environmental performance scores" width="800"/>
 
