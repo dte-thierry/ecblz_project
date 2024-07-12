@@ -6,9 +6,9 @@ import plotly.graph_objects as go
 import pandas as pd
 
 # Charger les données
-def load_and_process_data(file_path):
+def load_and_process_data(file_path):      
     # Charger les données
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path)    
     df['pef_group'] = ['acceptable' if pef < 1516 else 'excessif' for pef in df['pef']]
     # Arrondir la colonne 'mass' à 3 chiffres après la virgule
     df['mass'] = df['mass'].round(3)
@@ -54,15 +54,15 @@ def update_page1_content(value, slider_value, categories, df):
         # calculer la moyenne pef
         mean_pef = df['pef'].mean()
         # créer l'histogramme
-        fig = go.Figure(data=[go.Histogram(x=df['pef'])])
-        # ajouter une ligne horizontale pour représenter la moyenne
+        fig = go.Figure(data=[go.Histogram(y=df['pef'])])
+        # ajouter une ligne verticale pour représenter la moyenne
         fig.add_shape(
             type="line",
-            x0=0,
-            x1=1,
-            xref='paper',
-            y0=mean_pef,
-            y1=mean_pef,
+            x0=mean_pef,
+            x1=mean_pef,
+            yref='paper',
+            y0=0,
+            y1=1,
             line=dict(
                 color="Red",
                 width=3,
@@ -71,14 +71,14 @@ def update_page1_content(value, slider_value, categories, df):
         # mettre à jour le layout
         fig.update_layout(
             title_text='Histogramme PEF : Distribution des scores de performance environnementale',
-            xaxis_title="Nombre de produits",
-            yaxis_title="PEF Score",
+            yaxis_title="Nombre de produits",
+            xaxis_title="PEF Score",
             annotations=[
                 dict(
-                    x=1,
-                    y=mean_pef,
-                    xref='paper',
-                    yref='y',
+                    y=1,
+                    x=mean_pef,
+                    yref='paper',
+                    xref='x',
                     text=f"Moyenne PEF : {mean_pef:.2f}",
                     showarrow=False,
                     font=dict(

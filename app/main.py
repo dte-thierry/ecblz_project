@@ -13,6 +13,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 import pandas as pd
+import os
 
 # Importer le layout de la page d'accueil - page 0 -
 from page0 import create_page0_layout
@@ -27,8 +28,9 @@ from page2 import create_page2_layout
 from callbacks import load_and_process_data
 from callbacks import update_page1_content, toggle_slider, update_page2_content, display_page
 
-# Charger les données et les catégories de produits
-df, categories = load_and_process_data('data/ecbl-textiles.csv')
+# Charger les données et les catégories de produits 
+file_path = os.path.join(os.getcwd(), 'data', 'ecbl-textiles.csv')
+df, categories = load_and_process_data(file_path)
 
 # Choisir des feuilles de style CSS
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', \
