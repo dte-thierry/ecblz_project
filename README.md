@@ -7,3 +7,17 @@ Run the command ``python3 app/main.py``
 
 The application is running on port 8050. 
 Open the browser and follow the indications.
+
+## Screenshots
+
+### page 1 - environmental cost comparison - pef -
+
+<img src="screenshots/ecbl-dash004.png" alt="Top 5 by product" width="800"/>
+
+<img src="screenshots/ecbl-dash005.png" alt="distribution of environmental performance scores" width="800"/>
+
+
+### page 2 - textile comparison
+
+To do ...
+
