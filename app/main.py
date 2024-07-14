@@ -72,9 +72,9 @@ def slider_callback(value):
 layout_2 = create_page2_layout(df)
 
 @app.callback(Output (component_id='page-2-table', component_property='children'),
-    [Input (component_id='product-dropdown', component_property='value')])
-def page2_callback(product):
-    return update_page2_content(product, df)
+       [Input(component_id='page-2-dropdown', component_property='value')])
+def page2_callback(value):
+    return update_page2_content(value, categories, df)
 
 
 # Mise à jour de l'index ---------------------------------------------------------------
