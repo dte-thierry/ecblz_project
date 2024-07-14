@@ -22,7 +22,5 @@ Distribution of environmental performance scores
 <img src="screenshots/ecbl-dash005.png" alt="distribution of environmental performance scores" width="800"/>
 
 
-### page 2 - textile comparison
 
-To do ...
 

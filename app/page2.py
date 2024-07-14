@@ -8,12 +8,9 @@ def create_page2_layout(df):
 
         html.Div(dcc.Dropdown(id = 'page-2-dropdown',
                               options= [{'label': 'Diagramme à barres empilées : pays impliqués dans chaque étape de la fabrication', 'value': 'pays_fab'},
-                                        {'label': 'Diagramme à barres : matériaux utilisés dans les produits', 'value': 'bar_mat'},
-                                        {'label': 'Diagramme à barres : nombre de produits pour chaque type d\'entreprise', 'value': 'bar_bu'},
-                                        {'label': 'Diagramme à barres : nombre de produits qui ont une traçabilité', 'value': 'bar_trace'},
-                                        {'label': 'Diagramme à barres : nombre de produits pour chaque type de processus de fabrication', 'value': 'bar_process'},
-                                        {'label': 'Diagramme à barres : nombre de produits pour chaque durée de marketing', 'value': 'bar_market'},
-                                        {'label': 'Diagramme à barres : nombre de produits pour chaque nombre de références', 'value': 'bar_ref'}],
+                                        {'label': 'Diagramme à barres : nombre de textiles pour chaque type d\'entreprise', 'value': 'bar_bu'},
+                                        {'label': 'Diagramme à barres : nombre de textiles qui ont une traçabilité', 'value': 'bar_trace'},
+                                        {'label': 'Diagramme à barres : nombre de textiles pour chaque durée de marketing', 'value': 'bar_market'}],                                        
                               value= 'pays_fab')),
 
         html.Div(id='page-2-table'),

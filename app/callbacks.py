@@ -239,23 +239,59 @@ def update_page2_content(value, categories, df):
         # retourne le graphe et le 'div' HTML
         return html.Div([dcc.Graph(figure=figure), div], style = {'background' : 'white'})
     
-    elif value == 'bar_mat':
-        return None
-    
     elif value == 'bar_bu':
-        return None
+        # compter le nombre de produits par entreprises
+        business_counts = df['business'].value_counts()        
+        # créer le graphique
+        trace = go.Bar(
+            x=business_counts.index,
+            y=business_counts.values,
+            name='Entreprise'
+        )
+        # créer la figure
+        figure = {
+            'data': [trace],
+            'layout': go.Layout(
+                title='Nombre de textiles pour chaque type d\'entreprise',
+            )
+        }
+        return dcc.Graph(figure=figure)        
     
     elif value == 'bar_trace':
-        return None
-    
-    elif value == 'bar_process':
-        return None
+        # compter le nbre de textiles qui ont une traçabilité
+        traceability_counts = df['traceability'].value_counts()        
+        # créer le graphique
+        trace = go.Bar(
+            x=traceability_counts.index,
+            y=traceability_counts.values,
+            name='Traçabilité'
+        )
+        # créer la figure
+        figure = {
+            'data': [trace],
+            'layout': go.Layout(
+                title='Nombre de textiles qui ont une traçabilité',
+            )
+        }
+        return dcc.Graph(figure=figure)
     
     elif value == 'bar_market':
-        return None
-    
-    elif value == 'bar_ref':
-        return None
+        # compter le nbre de produits pour chaque durée
+        marketing_counts = df['marketingDuration'].value_counts()        
+        # créer le graphique
+        trace = go.Bar(
+            x=marketing_counts.index,
+            y=marketing_counts.values,
+            name='Marketing Duration'
+        )
+        # compléter la figure
+        figure = {
+            'data': [trace],
+            'layout': go.Layout(
+                title='Nombre de textiles pour chaque durée de marketing (en jours)',
+            )
+        }
+        return dcc.Graph(figure=figure)    
     
 
 def display_page(pathname, index_page, layout_1, layout_2):
